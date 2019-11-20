@@ -1,0 +1,36 @@
+package Sdemo1.Check;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class Switch_alert
+{
+	WebDriver driver;
+	@BeforeTest
+	public void beforeTest()
+	{
+		driver=NewTest2.openBrowser("firefox");
+		driver.get("http://demo.guru99.com/test/simple_context_menu.html");
+	}
+	@Test
+	public void doubleClick() 
+	{
+		Actions action = new Actions(driver);
+		WebElement link =driver.findElement(By.xpath("//button[text()='Double-Click Me To See Alert']"));
+		action.doubleClick(link).build().perform();
+
+		Alert alert = driver.switchTo().alert();	//handling Alert
+		System.out.println("Alert Text\n" +alert.getText());
+		alert.accept();
+	}
+	@AfterTest
+	public void afterTest()
+	{
+		driver.close();
+	}
+}

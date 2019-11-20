@@ -1,0 +1,49 @@
+
+package Sdemo1.Check;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class NewTest3
+{
+
+	WebDriver driver;
+  @BeforeTest
+  public void beforetest()
+  {
+	driver=NewTest2.openBrowser("Chrome");
+	driver.get("http://www.demoaut.com");
+	
+	   
+  }
+  
+  @Test
+  public void dologin()
+  {	
+	  
+	  driver.findElement(By.name("userName")).sendKeys("tutorial");
+	  driver.findElement(By.name("password")).sendKeys("tutorial");
+	  driver.findElement(By.xpath("//input[@name='login']")).click();
+	 // driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	  WebDriverWait wait=new WebDriverWait(driver,100);
+	  wait.until(ExpectedConditions.presenceOfElementLocated(By.name("tripType")));
+	  Assert.assertEquals("Find a Flight: Mercury Tours: ","driver.getTitle()");
+	 System.out.println("Logged in!!");
+	   
+  }
+  
+  @AfterTest
+  public void aftertest()
+  {
+	driver.close();
+	      
+  }
+   
+}

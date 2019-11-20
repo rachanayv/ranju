@@ -1,0 +1,22 @@
+package Sdemo1;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import Sdemo1.Check.NewTest2;
+
+public class SeleniumDemo {
+	WebDriver driver;
+	@BeforeTest
+	  public void beforetest()
+	  {
+		driver=NewTest2.openBrowser("Chrome");
+		driver.get("http://www.demoaut.com");
+		
+		   
+	  }
+  @Test
+  public void f() {
+  }
+}

@@ -1,0 +1,43 @@
+
+package Sdemo1.Check;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class NewTest
+{
+
+	
+	WebDriver driver;
+  @BeforeTest
+  public void beforetest()
+  {
+	driver=NewTest2.openBrowser("Chrome");
+	driver.get("http://10.232.237.143:443/TestMeApp/login.htm");
+	
+	   
+  }
+  
+  @Test
+  public void dologin()
+  {	
+	  driver.findElement(By.linkText("SignIn")).click();
+	  driver.findElement(By.name("userName")).sendKeys("lalitha");
+	  driver.findElement(By.name("user")).sendKeys("Password123");
+	  driver.findElement(By.xpath("//input[@name='Login']")).click();
+	  Assert.assertEquals("Home","driver.getTitle()");
+	 System.out.println("Logged in!!");
+	   
+  }
+  
+  @AfterTest
+  public void aftertest()
+  {
+	driver.close();
+	      
+  }
+   
+}

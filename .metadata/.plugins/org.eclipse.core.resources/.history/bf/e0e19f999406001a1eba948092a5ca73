@@ -1,0 +1,9 @@
+package Sdemo1;
+
+import org.testng.annotations.Test;
+
+public class SeleniumDemo {
+  @Test
+  public void f() {
+  }
+}

@@ -1,0 +1,17 @@
+package Sdemo1.Check;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+public class c1
+{
+	WebDriver driver;
+  @Test
+  public void f()
+  {
+	System.setProperty("webdriver.chrome.driver", "C:\\Users\\Training_C2A.04.30\\Desktop\\selenium.ChromeDriver.exe");
+	driver=new ChromeDriver();
+	driver.get("http://google.com");
+	  
+  }
+}
